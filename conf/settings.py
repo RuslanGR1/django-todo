@@ -46,6 +46,7 @@ LOCAL_APPS = [
 THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
+    'django_filters',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -53,7 +54,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,7 +76,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3005",
 ]
 
-#APPEND_SLASH=False
+# APPEND_SLASH=False
 
 CORS_ALLOW_METHODS = [
     "DELETE",
@@ -85,6 +86,10 @@ CORS_ALLOW_METHODS = [
     "POST",
     "PUT",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 
 ROOT_URLCONF = 'conf.urls'
 

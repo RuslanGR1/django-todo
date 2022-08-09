@@ -16,7 +16,7 @@ class Task(models.Model):
     board = models.ForeignKey(Board, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    orderNumber = models.PositiveIntegerField()
+    orderNumber = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.title

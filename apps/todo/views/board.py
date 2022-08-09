@@ -1,7 +1,7 @@
+from rest_framework import viewsets
+
 from ..serializers import BoardSerializer
 from ..models import Board
-
-from rest_framework import viewsets
 
 
 class BoardViewSet(viewsets.ModelViewSet):

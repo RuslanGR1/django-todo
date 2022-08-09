@@ -40,10 +40,12 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-    'apps.todo'
+    'apps.todo',
+    'apps.authentication',
 ]
 
 THIRD_PARTY_APPS = [
+    'rest_framework_simplejwt',
     'corsheaders',
     'rest_framework',
     'django_filters',
@@ -88,7 +90,10 @@ CORS_ALLOW_METHODS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 ROOT_URLCONF = 'conf.urls'
